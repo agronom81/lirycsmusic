@@ -41,7 +41,7 @@ export default class Lyrics extends Component {
     } else {
       return (
         <React.Fragment>
-          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-4">Go Back</Link>
+          <Link to="/" className="btn btn-dark btn-sm mb-4">Go Back</Link>
           <div className="card">
             <h5 className="card-header">
               { track.track_name } by <span className="text-secondary">{ track.artist_name }</span>

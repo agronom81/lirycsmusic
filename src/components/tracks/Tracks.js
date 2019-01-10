@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Consumer } from '../../context';
 import Spinner from '../layout/Spinner';
+import Error from '../layout/Error';
 import Track from './Track';
 
 export default class Tracks extends Component {
@@ -8,9 +9,11 @@ export default class Tracks extends Component {
     return (
       <Consumer>
         { value => {
-          const { track_list, heading } = value
-          if(track_list === undefined || track_list.length === 0) {
+          const { track_list, heading, error } = value
+          if((track_list === undefined || track_list.length === 0) && !error ) {
             return <Spinner/>
+          } else if(error) {
+            return <Error/>
           } else {
             return (
               <React.Fragment>
