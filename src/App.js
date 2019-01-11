@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
 import Lyrics from './components/tracks/Lyrics';
 import Provider from './context';
+import { CSSTransition } from 'react-transition-group';
 
 class App extends Component {
   render() {
@@ -13,7 +14,14 @@ class App extends Component {
       <Provider>
         <Router>
           <React.Fragment>
-            <Navbar />
+            <CSSTransition
+              in={true}
+              appear={true}
+              timeout={500}
+              classNames="fade-in-bottom"
+            >
+              <Navbar />
+            </CSSTransition>            
             <div className="container">
               <Switch>
                 <Route exact path="/" component={Index} />>
